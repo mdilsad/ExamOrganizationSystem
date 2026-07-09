@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Exam_Organisation_System;
+﻿namespace Exam_Organisation_System;
 
 public partial class App : Application
 {

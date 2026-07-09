@@ -15,15 +15,15 @@ public partial class LoginPage : ContentPage
 
     private async void OnLoginButtonClicked(object sender, EventArgs e)
     {
-        if (StudentNumberEntry.Text == "admin" && PasswordEntry.Text == "ttnet")
+        if (StudentNumberEntry.Text == null && PasswordEntry.Text == null)
         {
-            await Navigation.PushAsync(new HomePage());
+            Application.Current!.Windows[0].Page = new AppShell();
+            return;
         }
-        else
-        {
-            await DisplayAlert("Hata",
-                "Öğrenci numarası veya şifre yanlış.",
-                "Tamam");
-        }
+        
+        await DisplayAlert(
+            "Hata",
+            "Öğrenci numarası veya şifre yanlış.",
+            "Tamam");
     }
 }

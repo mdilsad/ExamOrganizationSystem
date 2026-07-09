@@ -4,6 +4,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.HomePage">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="24,20"
+                Spacing="8">
+                <Label
+                    Text="Merhaba,"
+                    FontSize="18"
+                    />
+                <Label
+                    x:Name="StudentNameLabel"
+                    Text="ADINIZ"
+                    FontSize="28"
+                />
+
+                <!-- Exam Card Section -->
+                <Label
+                    Text="Bugünkü Sınav"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    Margin="0,24,0,8"/>
+
+                <Border
+                    Padding="16"
+                    StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label
+                            Text="Farmakoloji"
+                            FontSize="20"
+                            FontAttributes="Bold"/>
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            RowDefinitions="Auto,Auto,Auto"
+                            ColumnSpacing="8"
+                            RowSpacing="8">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Text="🕘"/>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="09:30"/>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Text="🏫"/>
+                            <Label
+                                x:Name="NameOfBuilding"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="Bilgisayar Mühendisliği Binası"/>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="🚪"/>
+                            <Label
+                                x:Name="NameOfClass"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="Yazılım 1"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
