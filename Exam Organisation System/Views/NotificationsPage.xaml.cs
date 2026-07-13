@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Exam_Organisation_System.Views;
 
-public partial class QRScannerPage : ContentPage
+public partial class NotificationsPage : ContentPage
 {
-    public QRScannerPage()
+    public NotificationsPage()
     {
         InitializeComponent();
     }
