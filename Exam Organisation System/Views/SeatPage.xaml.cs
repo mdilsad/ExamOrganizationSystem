@@ -11,11 +11,11 @@ public partial class SeatPage : ContentPage
 {
     private readonly FakeDataService _fakeDataService;
 
-    public SeatPage()
+    public SeatPage(FakeDataService fakeDataService)
     {
         InitializeComponent();
 
-        _fakeDataService = FakeDataService.Instance;
+        _fakeDataService = fakeDataService;
 
         var exam = _fakeDataService.SelectedExam;
         if (exam == null)

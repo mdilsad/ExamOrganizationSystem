@@ -11,11 +11,11 @@ namespace Exam_Organisation_System.Views;
 public partial class ExamDetailPage : ContentPage
 {
     private readonly FakeDataService _fakeDataService;
-    public ExamDetailPage()
+    public ExamDetailPage(FakeDataService fakeDataService)
     {
         InitializeComponent();
 
-        _fakeDataService = FakeDataService.Instance;
+        _fakeDataService = fakeDataService;
 
         var exam = _fakeDataService.SelectedExam;
         if (exam == null)

@@ -1,3 +1,4 @@
+using Exam_Organisation_System.ViewModels;
 using Exam_Organisation_System.Services;
 using Exam_Organisation_System.Models;
 
@@ -7,12 +8,12 @@ public partial class ExamsPage : ContentPage
 {
     private readonly FakeDataService _fakeDataService;
 
-    public ExamsPage()
+    public ExamsPage(ExamsViewModel viewModel, FakeDataService fakeDataService)
     {
         InitializeComponent();
 
-        _fakeDataService = FakeDataService.Instance;
-        ExamCollection.ItemsSource = _fakeDataService.GetExams();
+        BindingContext = viewModel;
+        _fakeDataService = fakeDataService;
     }
 
     private async void OnExamDetailClicked(object sender, EventArgs e)

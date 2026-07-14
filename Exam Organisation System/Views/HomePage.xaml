@@ -13,10 +13,8 @@
                     FontSize="18"
                     />
                 <Label
-                    x:Name="StudentNameLabel"
-                    Text="Mehmet Dilşad Butekin"
-                    FontSize="28"
-                />
+                    Text="{Binding Student.FullName}"
+                    FontSize="28" />
                 <Label
                     Text="9 Temmuz 2026"
                     FontSize="14"
@@ -39,7 +37,7 @@
                     Margin="0,0,0,8">
                     <VerticalStackLayout Spacing="12">
                         <Label
-                            Text="Database Management Systems"
+                            Text="{Binding NextExam.CourseName}"
                             FontSize="20"
                             FontAttributes="Bold"/>
                         <Grid
@@ -54,25 +52,23 @@
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="1"
-                                Text="09:30"/>
+                                Text="{Binding NextExam.FormattedTime}"/>
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 Text="🏫"/>
                             <Label
-                                x:Name="NameOfBuilding"
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Text="Bilgisayar Mühendisliği Binası"/>
+                                Text="{Binding NextExam.Building}"/>
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Text="🚪"/>
                             <Label
-                                x:Name="NameOfClass"
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Text="Yazılım 1"/>
+                                Text="{Binding NextExam.Classroom}"/>
                         </Grid>
                         <Grid ColumnDefinitions="*,*" ColumnSpacing="12" Margin="0,8,0,0">
                             <Button

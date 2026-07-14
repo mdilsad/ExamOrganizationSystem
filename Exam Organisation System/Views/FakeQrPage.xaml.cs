@@ -12,11 +12,11 @@ public partial class FakeQrPage : ContentPage
 {
     private readonly FakeDataService _fakeDataService;
 
-    public FakeQrPage()
+    public FakeQrPage(FakeDataService fakeDataService)
     {
-        InitializeComponent(); 
+        InitializeComponent();
 
-        _fakeDataService = FakeDataService.Instance;
+        _fakeDataService = fakeDataService;
 
         var exam = _fakeDataService.SelectedExam;
         if (exam != null)

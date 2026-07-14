@@ -4,13 +4,12 @@ namespace Exam_Organisation_System.Services;
 
 public class FakeDataService
 {
-    public static FakeDataService Instance { get; } = new FakeDataService();
 
     private readonly List<Exam> _exams;
     private readonly Student _student;
     private readonly List<Announcement> _announcements;
 
-    private FakeDataService()
+    public FakeDataService()
     {
         _student = new Student
         {

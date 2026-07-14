@@ -13,9 +13,10 @@
 
                 <SearchBar Placeholder="Sınav ara..." />
 
-                <CollectionView x:Name="ExamCollection"
-                                SelectionMode="None"
-                                VerticalOptions="FillAndExpand">
+                <CollectionView
+                    SelectionMode="None"
+                    VerticalOptions="FillAndExpand"
+                    ItemsSource="{Binding Exams}">
 
                     <CollectionView.ItemTemplate>
 
