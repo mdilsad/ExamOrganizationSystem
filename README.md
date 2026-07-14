@@ -8,7 +8,7 @@ The application aims to help students and teachers easily access their exam info
 - Home Dashboard
 - Exam List
 - Exam Detail Page
-- QR Demonstration
+- QR Demonstration (currently fake)
 - Seat Information Page
 - Student Profile
 - Settings Page
