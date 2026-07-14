@@ -4,6 +4,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.FakeQrPage">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="24"
+                Spacing="24"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="QR Kod"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Sınav salonu kapısındaki QR kodunu taratıyormuş gibi devam edebilirsiniz."
+                    HorizontalTextAlignment="Center"
+                    TextColor="Gray" />
+
+                <Border
+                    Padding="16"
+                    Stroke="#E5E7EB"
+                    StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Seçilen Sınav"
+                               FontAttributes="Bold"
+                               FontSize="18" />
+                        <Label x:Name="CourseNameLabel"
+                               FontSize="16" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 16"
+                    Padding="16">
+                    <Image
+                        Source="qr_placeholder.png"
+                        HeightRequest="220"
+                        WidthRequest="220"
+                        Aspect="AspectFit" />
+                </Border>
+
+                <Button
+                    x:Name="ScanButton"
+                    Text="QR Tara"
+                    Clicked="OnScanClicked"
+                    HeightRequest="52"
+                    CornerRadius="12" />
+
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

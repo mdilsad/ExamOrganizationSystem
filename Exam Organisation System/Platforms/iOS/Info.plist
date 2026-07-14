@@ -28,5 +28,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>NSCameraUsageDescription</key>
+	<string>QR kodunu okumak için kamera erişimi gereklidir.</string>
 </dict>
 </plist>

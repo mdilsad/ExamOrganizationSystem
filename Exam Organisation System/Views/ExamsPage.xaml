@@ -4,6 +4,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.ExamsPage">
     <ContentPage.Content>
-        
+        <VerticalStackLayout Padding="24" Spacing="20">
+
+                <Label
+                    Text="Sınavlar"
+                    FontSize="28"
+                    FontAttributes="Bold" />
+
+                <SearchBar Placeholder="Sınav ara..." />
+
+                <CollectionView x:Name="ExamCollection"
+                                SelectionMode="None"
+                                VerticalOptions="FillAndExpand">
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <Border
+                                Margin="0,0,0,16"
+                                Padding="16"
+                                Stroke="#E5E7EB"
+                                StrokeShape="RoundRectangle 16">
+                                <VerticalStackLayout Spacing="8">
+                                    <Label
+                                        Text="{Binding CourseName}"
+                                        FontSize="20"
+                                        FontAttributes="Bold"
+                                        TextColor="#1F2937"/>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="📅"/>
+                                        <Label Text="{Binding FormattedDate}"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="🕒"/>
+                                        <Label Text="{Binding FormattedTime}"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="🏢"/>
+                                        <Label Text="{Binding Building}"/>
+                                    </HorizontalStackLayout>
+
+                                    <Button
+                                        Text="Detayları Gör"
+                                        CornerRadius="12"
+                                        Clicked="OnExamDetailClicked"
+                                        BackgroundColor="#006633"
+                                        TextColor="White"
+                                        HeightRequest="48"
+                                        Margin="0,8,0,0"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

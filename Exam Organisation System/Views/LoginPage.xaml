@@ -19,7 +19,13 @@
                 HorizontalOptions="Center"/>
 
             <Label
-                Text="Çukurova Üniversitesi Sınav Yönetim Sistemi"
+                Text="Çukurova Üniversitesi"
+                FontFamily="CinzelRegular"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+            <Label
+                Text="Sınav Yönetim Sistemi"
                 FontFamily="CinzelRegular"
                 FontSize="28"
                 FontAttributes="Bold"

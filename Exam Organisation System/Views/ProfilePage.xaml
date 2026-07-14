@@ -4,6 +4,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.ProfilePage">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <VerticalStackLayout Padding="24" Spacing="20">
+
+                <Label
+                    Text="Profil"
+                    FontSize="28"
+                    FontAttributes="Bold" />
+
+                <Border
+                    Padding="20"
+                    BackgroundColor="#006633"
+                    StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="ÇUKUROVA ÜNİVERSİTESİ"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="18" />
+                        <Label Text="Mehmet Dilşad Butekin"
+                               TextColor="White"
+                               FontSize="24"
+                               FontAttributes="Bold" />
+                        <Label Text="2023556016" TextColor="White" />
+                        <Label Text="Bilgisayar Mühendisliği" TextColor="White" />
+                        <Label Text="4. Sınıf" TextColor="White" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                    <Border Grid.Column="0" Padding="12" StrokeShape="RoundRectangle 16">
+                        <VerticalStackLayout>
+                            <Label Text="18" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Label Text="Toplam" HorizontalOptions="Center" FontSize="12" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1" Padding="12" StrokeShape="RoundRectangle 16">
+                        <VerticalStackLayout>
+                            <Label Text="12" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Label Text="Tamamlanan" HorizontalOptions="Center" FontSize="12" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="2" Padding="12" StrokeShape="RoundRectangle 16">
+                        <VerticalStackLayout>
+                            <Label Text="6" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Label Text="Yaklaşan" HorizontalOptions="Center" FontSize="12" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <Border Padding="16" Stroke="#E5E7EB" StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Öğrenci Bilgileri" FontAttributes="Bold" FontSize="18" />
+                        <Label Text="Numara: 2210512345" />
+                        <Label Text="Fakülte: Mühendislik" />
+                        <Label Text="Bölüm: Bilgisayar Mühendisliği" />
+                        <Label Text="E-posta: ogrenci@cu.edu.tr" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button Text="Çıkış Yap" CornerRadius="12"
+                        Clicked="LogoffClicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

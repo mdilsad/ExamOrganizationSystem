@@ -4,6 +4,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.SettingsPage">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <VerticalStackLayout Padding="24" Spacing="24">
+
+                <Label
+                    Text="Ayarlar"
+                    FontSize="28"
+                    FontAttributes="Bold" />
+
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="Koyu Tema (BETA)" FontAttributes="Bold" FontSize="18" />
+                                <Label Text="Koyu tema yakında kullanılabilir olacak."
+                                       FontSize="13"
+                                       TextColor="Gray" />
+                            </VerticalStackLayout>
+                            <Switch Grid.Column="1" x:Name="DarkModeSwitch" Toggled="ThemeSwitch_Toggled"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Hakkında" FontAttributes="Bold" FontSize="18" />
+                        <Label Text="Exam Organisation System" />
+                        <Label Text="Sürüm 1.0.0" TextColor="Gray" />
+                        <Label Text="Çukurova Üniversitesi Bilgi İşlem Ağ ve Destek Birimi"
+                               FontSize="18"
+                               TextColor="Gray" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

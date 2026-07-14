@@ -4,6 +4,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.ExamDetailPage">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <VerticalStackLayout Padding="24" Spacing="20">
+
+                <Label
+                    Text="Sınav Detayı"
+                    FontSize="28"
+                    FontAttributes="Bold" />
+
+                <Border Padding="20"
+                        Stroke="#E5E7EB"
+                        StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout Spacing="10">
+                        <Label x:Name="CourseNameLabel"
+                               Text=""
+                               FontSize="24"
+                               FontAttributes="Bold" />
+                        <Label x:Name="DateLabel" />
+                        <Label x:Name="TimeLabel" />
+                        <Label x:Name="BuildingLabel" />
+                        <Label x:Name="ClassroomLabel" />
+                        <Label x:Name="SupervisorLabel" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Padding="16"
+                        Stroke="#E5E7EB"
+                        StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Sınav Bilgilendirmesi"
+                               FontAttributes="Bold"
+                               FontSize="18" />
+                        <Label x:Name="DescriptionLabel" LineBreakMode="WordWrap" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button Text="QR Kodunu Göster"
+                        Clicked="ShowQRClicked"
+                        CornerRadius="12"
+                        HeightRequest="52" />
+
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

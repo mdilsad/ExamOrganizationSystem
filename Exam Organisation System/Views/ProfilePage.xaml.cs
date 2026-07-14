@@ -12,4 +12,8 @@ public partial class ProfilePage : ContentPage
     {
         InitializeComponent();
     }
+    private void LogoffClicked(object sender, EventArgs e)
+    {
+        Application.Current!.MainPage = new NavigationPage(new LoginPage());
+    }
 }

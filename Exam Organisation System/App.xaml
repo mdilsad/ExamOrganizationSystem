@@ -5,6 +5,7 @@
              x:Class="Exam_Organisation_System.App">
     <Application.Resources>
         <ResourceDictionary>
+            <!-- Theme colors replaced with simple Color resources -->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
