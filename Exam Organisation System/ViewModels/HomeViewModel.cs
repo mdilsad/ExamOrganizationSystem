@@ -9,6 +9,8 @@ namespace Exam_Organisation_System.ViewModels;
 public class HomeViewModel : BaseViewModel
 {
     private readonly FakeDataService _fakeDataService;
+    private readonly FakeStudentService _fakeStudentService;
+    private readonly FakeAnnouncementService _fakeAnnouncementService;
     private readonly NavigationService _navigationService;
     
     public ICommand ShowQrCommand { get; }
@@ -28,11 +30,17 @@ public class HomeViewModel : BaseViewModel
         set => SetProperty(ref _nextExam, value);
     }
 
-    public HomeViewModel(FakeDataService fakeDataService, NavigationService navigationService)
+    public HomeViewModel(
+        FakeDataService fakeDataService,
+        FakeStudentService fakeStudentService,
+        FakeAnnouncementService fakeAnnouncementService,
+        NavigationService navigationService)
     {
         _fakeDataService = fakeDataService;
+        _fakeStudentService = fakeStudentService;
+        _fakeAnnouncementService = fakeAnnouncementService;
         _navigationService = navigationService;
-        Student = _fakeDataService.GetStudent();
+        Student = _fakeStudentService.GetStudent();
         NextExam = _fakeDataService
             .GetExams()
             .OrderBy(x => x.ExamDate)

@@ -6,21 +6,9 @@ public class FakeDataService
 {
 
     private readonly List<Exam> _exams;
-    private readonly Student _student;
-    private readonly List<Announcement> _announcements;
 
     public FakeDataService()
     {
-        _student = new Student
-        {
-            StudentNumber = "2023556016",
-            FullName = "Mehmet Dilşad Butekin",
-            Faculty = "Mühendislik Fakültesi",
-            Department = "Bilgisayar Mühendisliği",
-            Grade = 4,
-            Email = "2023556016@ogr.cu.edu.tr"
-        };
-
         _exams =
         [
             new Exam
@@ -60,28 +48,9 @@ public class FakeDataService
             }
         ];
 
-        _announcements =
-        [
-            new Announcement
-            {
-                Id = 1,
-                Title = "Final Sınavları",
-                Content = "Final sınav programı yayımlanmıştır.",
-                PublishDate = DateTime.Today
-            },
-
-            new Announcement
-            {
-                Id = 2,
-                Title = "Salon Güncellemesi",
-                Content = "Bazı sınav salonlarında değişiklik yapılmıştır.",
-                PublishDate = DateTime.Today.AddDays(-1)
-            }
-        ];
     }
 
-    public Student GetStudent()
-        => _student;
+    
     
     public Exam? SelectedExam { get; set; }
 
@@ -91,6 +60,4 @@ public class FakeDataService
     public Exam? GetExamById(int id)
         => _exams.FirstOrDefault(x => x.Id == id);
 
-    public List<Announcement> GetAnnouncements()
-        => _announcements;
 }
