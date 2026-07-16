@@ -76,20 +76,20 @@
                     <Label Text="Öğrenci No."/>
 
                     <Entry
-                        x:Name="StudentNumberEntry"
-                        Placeholder="Öğrenci numaranız"/>
+                        Placeholder="Öğrenci numaranız"
+                        Text="{Binding StudentNumber}"/>
 
                     <Label Text="Şifre"/>
 
                     <Entry
-                        x:Name="PasswordEntry"
                         Placeholder="Şifreniz"
-                        IsPassword="True"/>
+                        IsPassword="True"
+                        Text="{Binding Password}"/>
 
                     <Button
                         Text="Giriş yap"
                         Margin="0,10,0,0"
-                        Clicked="OnLoginButtonClicked"/>
+                        Command="{Binding LoginCommand}"/>
 
                 </VerticalStackLayout>
 

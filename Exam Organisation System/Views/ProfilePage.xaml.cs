@@ -1,19 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Exam_Organisation_System.ViewModels;
 
 namespace Exam_Organisation_System.Views;
 
 public partial class ProfilePage : ContentPage
 {
-    public ProfilePage()
+    public ProfilePage(ProfileViewModel viewModel)
     {
         InitializeComponent();
-    }
-    private void LogoffClicked(object sender, EventArgs e)
-    {
-        Application.Current!.MainPage = new NavigationPage(new LoginPage());
+        BindingContext = viewModel;
     }
 }

@@ -25,7 +25,9 @@
                                        FontSize="13"
                                        TextColor="Gray" />
                             </VerticalStackLayout>
-                            <Switch Grid.Column="1" x:Name="DarkModeSwitch" Toggled="ThemeSwitch_Toggled"/>
+                            <Switch
+                                Grid.Column="1"
+                                IsToggled="{Binding IsDarkMode}"/>
                         </Grid>
                     </VerticalStackLayout>
                 </Border>

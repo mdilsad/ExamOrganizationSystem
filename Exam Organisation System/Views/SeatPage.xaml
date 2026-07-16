@@ -24,22 +24,17 @@
                     <VerticalStackLayout Spacing="12">
 
                         <Label
-                            x:Name="CourseNameLabel"
-                            Text="Database Management Systems"
+                            Text="{Binding SelectedExam.CourseName}"
                             FontSize="22"
                             FontAttributes="Bold" />
 
-                        <Label x:Name="DateLabel" />
+                        <Label Text="{Binding SelectedExam.FormattedDate}" />
 
-                        <Label x:Name="TimeLabel" />
+                        <Label Text="{Binding SelectedExam.FormattedTime}" />
 
-                        <Label
-                            x:Name="BuildingLabel"
-                            Text="Bilgisayar Mühendisliği" />
+                        <Label Text="{Binding SelectedExam.Building}" />
 
-                        <Label
-                            x:Name="ClassroomLabel"
-                            Text="Yazılım 1" />
+                        <Label Text="{Binding SelectedExam.Classroom}" />
 
                     </VerticalStackLayout>
                 </Border>
@@ -60,8 +55,7 @@
                             FontSize="20" />
 
                         <Label
-                            x:Name="SeatNumberLabel"
-                            Text="18"
+                            Text="{Binding SelectedExam.SeatNumber}"
                             FontSize="64"
                             FontAttributes="Bold"
                             TextColor="White"
@@ -71,9 +65,8 @@
                 </Border>
 
                 <Button
-                    x:Name="BackButton"
                     Text="Ana Sayfaya Dön"
-                    Clicked="BackToMainClicked"
+                    Command="{Binding BackToHomeCommand}"
                     CornerRadius="14" />
 
             </VerticalStackLayout>

@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Exam_Organisation_System.ViewModels;
 
 namespace Exam_Organisation_System.Views;
 
 public partial class SettingsPage : ContentPage
 {
-    public SettingsPage()
+    public SettingsPage(SettingsViewModel viewModel)
     {
         InitializeComponent();
-    }
-    private void ThemeSwitch_Toggled(object sender, ToggledEventArgs e)
-    {
-        Application.Current!.UserAppTheme =
-            e.Value ? AppTheme.Dark : AppTheme.Light;
+        BindingContext = viewModel;
     }
 }

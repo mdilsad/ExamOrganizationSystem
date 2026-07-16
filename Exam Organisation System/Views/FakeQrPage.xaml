@@ -29,8 +29,9 @@
                         <Label Text="Seçilen Sınav"
                                FontAttributes="Bold"
                                FontSize="18" />
-                        <Label x:Name="CourseNameLabel"
-                               FontSize="16" />
+                        <Label
+                            Text="{Binding SelectedExam.CourseName}"
+                            FontSize="16" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -46,9 +47,8 @@
                 </Border>
 
                 <Button
-                    x:Name="ScanButton"
                     Text="QR Tara"
-                    Clicked="OnScanClicked"
+                    Command="{Binding ScanCommand}"
                     HeightRequest="52"
                     CornerRadius="12" />
 

@@ -3,9 +3,10 @@ using Microsoft.Maui.Controls;
 using Exam_Organisation_System.Models;
 using Exam_Organisation_System.Services;
 using Exam_Organisation_System.Views;
+
 namespace Exam_Organisation_System.ViewModels;
 
-public class ExamDetailViewModel : BaseViewModel
+public class FakeQrViewModel : BaseViewModel
 {
     private readonly FakeDataService _fakeDataService;
     private readonly NavigationService _navigationService;
@@ -17,9 +18,9 @@ public class ExamDetailViewModel : BaseViewModel
         set => SetProperty(ref _selectedExam, value);
     }
 
-    public ICommand ShowQrCommand { get; }
+    public ICommand ScanCommand { get; }
 
-    public ExamDetailViewModel(
+    public FakeQrViewModel(
         FakeDataService fakeDataService,
         NavigationService navigationService)
     {
@@ -28,7 +29,7 @@ public class ExamDetailViewModel : BaseViewModel
 
         SelectedExam = _fakeDataService.SelectedExam ?? new Exam();
 
-        ShowQrCommand = new Command(async () =>
-            await _navigationService.GoToAsync(nameof(FakeQrPage)));
+        ScanCommand = new Command(async () =>
+            await _navigationService.GoToAsync(nameof(SeatPage)));
     }
 }

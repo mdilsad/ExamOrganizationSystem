@@ -3,40 +3,31 @@
     x:Class="Exam_Organisation_System.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Exam_Organisation_System"
     xmlns:views="clr-namespace:Exam_Organisation_System.Views"
     Shell.NavBarIsVisible="False"
     Shell.TabBarForegroundColor="#006633"
     Shell.TabBarUnselectedColor="#808080"
     Shell.TabBarTitleColor="#006633">
-
-    
     <TabBar>
-
         <ShellContent
             Title="Ana Sayfa"
             Icon="home.svg"
             Route="HomePage"
             ContentTemplate="{DataTemplate views:HomePage}" />
-
         <ShellContent
             Title="Sınavlar"
             Icon="exams.svg"
             Route="ExamsPage"
             ContentTemplate="{DataTemplate views:ExamsPage}" />
-
         <ShellContent
             Title="Profil"
             Icon="person.svg"
             Route="ProfilePage"
             ContentTemplate="{DataTemplate views:ProfilePage}" />
-
         <ShellContent
             Title="Ayarlar"
             Icon="setting.svg"
             Route="SettingsPage"
             ContentTemplate="{DataTemplate views:SettingsPage}" />
-
     </TabBar>
-
 </Shell>

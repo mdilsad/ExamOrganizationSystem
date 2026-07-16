@@ -3,6 +3,7 @@ namespace Exam_Organisation_System;
 
 public partial class AppShell : Shell
 {
+
     public AppShell()
     {
         InitializeComponent();
@@ -11,5 +12,4 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(SeatPage), typeof(SeatPage));
         Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
     }
-    
 }

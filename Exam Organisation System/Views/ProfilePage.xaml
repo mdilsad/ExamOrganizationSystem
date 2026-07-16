@@ -63,7 +63,7 @@
                 </Border>
 
                 <Button Text="Çıkış Yap" CornerRadius="12"
-                        Clicked="LogoffClicked"/>
+                        Command="{Binding LogoutCommand}"/>
 
             </VerticalStackLayout>
         </ScrollView>

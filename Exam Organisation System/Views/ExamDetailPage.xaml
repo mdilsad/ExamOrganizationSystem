@@ -16,15 +16,15 @@
                         Stroke="#E5E7EB"
                         StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout Spacing="10">
-                        <Label x:Name="CourseNameLabel"
-                               Text=""
+                        <Label
+                               Text="{Binding SelectedExam.CourseName}"
                                FontSize="24"
                                FontAttributes="Bold" />
-                        <Label x:Name="DateLabel" />
-                        <Label x:Name="TimeLabel" />
-                        <Label x:Name="BuildingLabel" />
-                        <Label x:Name="ClassroomLabel" />
-                        <Label x:Name="SupervisorLabel" />
+                        <Label Text="{Binding SelectedExam.ExamDate}" />
+                        <Label Text="{Binding SelectedExam.ExamTime}" />
+                        <Label Text="{Binding SelectedExam.Building}" />
+                        <Label Text="{Binding SelectedExam.Classroom}" />
+                        <Label Text="{Binding SelectedExam.Supervisor}" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -35,12 +35,12 @@
                         <Label Text="Sınav Bilgilendirmesi"
                                FontAttributes="Bold"
                                FontSize="18" />
-                        <Label x:Name="DescriptionLabel" LineBreakMode="WordWrap" />
+                        <Label Text="{Binding SelectedExam.Description}" LineBreakMode="WordWrap" />
                     </VerticalStackLayout>
                 </Border>
 
                 <Button Text="QR Kodunu Göster"
-                        Clicked="ShowQRClicked"
+                        Command="{Binding ShowQrCommand}"
                         CornerRadius="12"
                         HeightRequest="52" />
 

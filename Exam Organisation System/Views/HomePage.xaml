@@ -74,12 +74,12 @@
                             <Button
                                 Grid.Column="0"
                                 Text="Detayları Gör"
-                                Clicked="OnExamDetailClicked"
+                                Command="{Binding OpenExamDetailCommand}"
                                 CornerRadius="12" />
                             <Button
                                 Grid.Column="1"
                                 Text="QR Kodunu Göster"
-                                Clicked="OnShowQrClicked"
+                                Command="{Binding ShowQrCommand}"
                                 CornerRadius="12" />
                         </Grid>
                     </VerticalStackLayout>

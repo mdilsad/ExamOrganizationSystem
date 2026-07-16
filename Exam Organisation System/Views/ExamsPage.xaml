@@ -11,12 +11,13 @@
                     FontSize="28"
                     FontAttributes="Bold" />
 
-                <SearchBar Placeholder="Sınav ara..." />
+                <SearchBar Placeholder="Sınav ara..." Margin="0,0,0,4" />
 
                 <CollectionView
                     SelectionMode="None"
                     VerticalOptions="FillAndExpand"
-                    ItemsSource="{Binding Exams}">
+                    ItemsSource="{Binding Exams}"
+                    ItemSizingStrategy="MeasureFirstItem">
 
                     <CollectionView.ItemTemplate>
 
@@ -26,13 +27,16 @@
                                 Margin="0,0,0,16"
                                 Padding="16"
                                 Stroke="#E5E7EB"
-                                StrokeShape="RoundRectangle 16">
+                                StrokeShape="RoundRectangle 16"
+                                HorizontalOptions="Fill">
                                 <VerticalStackLayout Spacing="8">
                                     <Label
                                         Text="{Binding CourseName}"
                                         FontSize="20"
                                         FontAttributes="Bold"
-                                        TextColor="#1F2937"/>
+                                        TextColor="#1F2937"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1"/>
 
                                     <HorizontalStackLayout Spacing="6">
                                         <Label Text="📅"/>
@@ -52,7 +56,8 @@
                                     <Button
                                         Text="Detayları Gör"
                                         CornerRadius="12"
-                                        Clicked="OnExamDetailClicked"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenExamDetailCommand}"
+                                        CommandParameter="{Binding .}"
                                         BackgroundColor="#006633"
                                         TextColor="White"
                                         HeightRequest="48"

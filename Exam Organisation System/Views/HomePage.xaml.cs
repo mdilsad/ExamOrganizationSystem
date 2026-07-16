@@ -9,14 +9,4 @@ public partial class HomePage : ContentPage
         InitializeComponent();
         BindingContext = viewModel;
     }
-
-    private async void OnShowQrClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(FakeQrPage));
-    }
-
-    private async void OnExamDetailClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(ExamDetailPage));
-    }
 }
