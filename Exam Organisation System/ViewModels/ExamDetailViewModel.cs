@@ -7,8 +7,7 @@ namespace Exam_Organisation_System.ViewModels;
 
 public class ExamDetailViewModel : BaseViewModel
 {
-    private readonly FakeExamService _fakeExamService;
-    private readonly FakeDataService _fakeDataService;
+    private readonly SessionService _sessionService;
     private readonly NavigationService _navigationService;
 
     private Exam _selectedExam = new();
@@ -21,20 +20,14 @@ public class ExamDetailViewModel : BaseViewModel
     public ICommand ShowQrCommand { get; }
 
     public ExamDetailViewModel(
-        FakeExamService fakeExamService,
-        FakeDataService fakeDataService,
+        SessionService sessionService,
         NavigationService navigationService)
     {
-        _fakeExamService = fakeExamService;
-        _fakeDataService = fakeDataService;
+        _sessionService = sessionService;
+        SelectedExam = _sessionService.SelectedExam ?? new Exam();
         _navigationService = navigationService;
 
         ShowQrCommand = new Command(async () =>
             await _navigationService.GoToAsync(nameof(FakeQrPage)));
-    }
-
-    public void LoadExam(int examId)
-    {
-        SelectedExam = _fakeExamService.GetExamById(examId) ?? new Exam();
     }
 }

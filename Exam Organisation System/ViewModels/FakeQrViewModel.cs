@@ -8,7 +8,7 @@ namespace Exam_Organisation_System.ViewModels;
 
 public class FakeQrViewModel : BaseViewModel
 {
-    private readonly FakeDataService _fakeDataService;
+    private readonly SessionService _sessionService;
     private readonly NavigationService _navigationService;
 
     private Exam _selectedExam = new();
@@ -21,13 +21,13 @@ public class FakeQrViewModel : BaseViewModel
     public ICommand ScanCommand { get; }
 
     public FakeQrViewModel(
-        FakeDataService fakeDataService,
+        SessionService sessionService,
         NavigationService navigationService)
     {
-        _fakeDataService = fakeDataService;
+        _sessionService = sessionService;
         _navigationService = navigationService;
 
-        SelectedExam = _fakeDataService.SelectedExam ?? new Exam();
+        SelectedExam = _sessionService.SelectedExam ?? new Exam();
 
         ScanCommand = new Command(async () =>
             await _navigationService.GoToAsync(nameof(SeatPage)));

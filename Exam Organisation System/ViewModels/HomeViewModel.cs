@@ -3,15 +3,18 @@ using Microsoft.Maui.Controls;
 using Exam_Organisation_System.Views;
 using Exam_Organisation_System.Models;
 using Exam_Organisation_System.Services;
+using Exam_Organisation_System.Services.Database;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Exam_Organisation_System.ViewModels;
 
 public class HomeViewModel : BaseViewModel
 {
-    private readonly FakeDataService _fakeDataService;
-    private readonly FakeStudentService _fakeStudentService;
-    private readonly FakeAnnouncementService _fakeAnnouncementService;
+    private readonly ExamRepository _examRepository;
+    private readonly StudentRepository _studentRepository;
     private readonly NavigationService _navigationService;
+    private readonly SessionService _sessionService;
     
     public ICommand ShowQrCommand { get; }
     public ICommand OpenExamDetailCommand { get; }
@@ -31,24 +34,40 @@ public class HomeViewModel : BaseViewModel
     }
 
     public HomeViewModel(
-        FakeDataService fakeDataService,
-        FakeStudentService fakeStudentService,
-        FakeAnnouncementService fakeAnnouncementService,
-        NavigationService navigationService)
+        ExamRepository examRepository,
+        StudentRepository studentRepository,
+        NavigationService navigationService,
+        SessionService sessionService)
     {
-        _fakeDataService = fakeDataService;
-        _fakeStudentService = fakeStudentService;
-        _fakeAnnouncementService = fakeAnnouncementService;
+        _examRepository = examRepository;
+        _studentRepository = studentRepository;
         _navigationService = navigationService;
-        Student = _fakeStudentService.GetStudent();
-        NextExam = _fakeDataService
-            .GetExams()
-            .OrderBy(x => x.ExamDate)
-            .First();
+        _sessionService = sessionService;
+        _ = LoadDataAsync();
         ShowQrCommand = new Command(async () =>
-            await _navigationService.GoToAsync(nameof(FakeQrPage)));
+        {
+            _sessionService.SelectedExam = NextExam;
+            await _navigationService.GoToAsync(nameof(FakeQrPage));
+        });
 
         OpenExamDetailCommand = new Command(async () =>
-            await _navigationService.GoToAsync(nameof(ExamDetailPage)));
+        {
+            _sessionService.SelectedExam = NextExam;
+            await _navigationService.GoToAsync(nameof(ExamDetailPage));
+        });
+    }
+
+    private async Task LoadDataAsync()
+    {
+        var student = (await _studentRepository.GetAllAsync()).FirstOrDefault();
+        if (student != null)
+            Student = student;
+
+        var nextExam = (await _examRepository.GetAllAsync())
+            .OrderBy(x => x.ExamDate)
+            .FirstOrDefault();
+
+        if (nextExam != null)
+            NextExam = nextExam;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Exam_Organisation_System.ViewModels;
+﻿using Exam_Organisation_System.Services.Database;
+using Exam_Organisation_System.ViewModels;
 using Exam_Organisation_System.Views;
 using Microsoft.Extensions.Logging;
 using Exam_Organisation_System.Services;
@@ -22,13 +23,15 @@ public static class MauiProgram
             });
         builder.Services.AddSingleton<App>();
         builder.Services.AddSingleton<AppShell>();
-        // Şimdilik sadece FakeDataService kullanıyoruz.
-        builder.Services.AddSingleton<FakeDataService>();
+        // Uygulama oturum bilgilerini (CurrentStudent ve SelectedExam) tutar.
+        builder.Services.AddSingleton<SessionService>();
         builder.Services.AddSingleton<NavigationService>();
         builder.Services.AddSingleton<AuthenticationService>();
-        builder.Services.AddSingleton<FakeStudentService>();
-        builder.Services.AddSingleton<FakeAnnouncementService>();
-        builder.Services.AddSingleton<FakeExamService>();
+        builder.Services.AddSingleton<AppDatabase>();
+        builder.Services.AddSingleton<DatabaseInitializer>();
+        builder.Services.AddSingleton<StudentRepository>();
+        builder.Services.AddSingleton<ExamRepository>();
+        builder.Services.AddSingleton<AnnouncementRepository>();
 
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<LoginPage>();

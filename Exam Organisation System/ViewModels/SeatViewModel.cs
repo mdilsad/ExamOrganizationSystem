@@ -6,7 +6,7 @@ namespace Exam_Organisation_System.ViewModels;
 
 public class SeatViewModel : BaseViewModel
 {
-    private readonly FakeDataService _fakeDataService;
+    private readonly SessionService _sessionService;
     private readonly NavigationService _navigationService;
 
     private Exam _selectedExam = new();
@@ -19,13 +19,13 @@ public class SeatViewModel : BaseViewModel
     public ICommand BackToHomeCommand { get; }
 
     public SeatViewModel(
-        FakeDataService fakeDataService,
+        SessionService sessionService,
         NavigationService navigationService)
     {
-        _fakeDataService = fakeDataService;
+        _sessionService = sessionService;
         _navigationService = navigationService;
 
-        SelectedExam = _fakeDataService.SelectedExam ?? new Exam();
+        SelectedExam = _sessionService.SelectedExam ?? new Exam();
 
         BackToHomeCommand = new Command(async () =>
             await _navigationService.GoToRootAsync());

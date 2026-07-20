@@ -46,7 +46,7 @@ public class LoginViewModel : BaseViewModel
             return;
         }
 
-        if (!_authenticationService.Login(StudentNumber, Password))
+        if (!await _authenticationService.LoginAsync(StudentNumber, Password))
         {
             await Application.Current!.Windows[0].Page.DisplayAlert(
                 "Hata",

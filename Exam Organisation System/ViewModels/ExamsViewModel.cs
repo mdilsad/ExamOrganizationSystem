@@ -4,41 +4,55 @@ using Exam_Organisation_System.Views;
 using System.Collections.ObjectModel;
 using Exam_Organisation_System.Models;
 using Exam_Organisation_System.Services;
+using Exam_Organisation_System.Services.Database;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Exam_Organisation_System.ViewModels;
 
 public class ExamsViewModel : BaseViewModel
 {
-    private readonly FakeExamService _fakeExamService;
-    private readonly FakeDataService _fakeDataService;
+    private readonly ExamRepository _examRepository;
     private readonly NavigationService _navigationService;
+    private readonly SessionService _sessionService;
 
     public ObservableCollection<Exam> Exams { get; }
 
     public ICommand OpenExamDetailCommand { get; }
 
     public ExamsViewModel(
-        FakeExamService fakeExamService,
-        FakeDataService fakeDataService,
-        NavigationService navigationService)
+        ExamRepository examRepository,
+        NavigationService navigationService,
+        SessionService sessionService)
     {
-        _fakeExamService = fakeExamService;
-        _fakeDataService = fakeDataService;
+        _examRepository = examRepository;
         _navigationService = navigationService;
+        _sessionService = sessionService;
 
-        Exams = new ObservableCollection<Exam>(_fakeExamService.GetExams());
+        Exams = new ObservableCollection<Exam>();
+        _ = LoadExamsAsync();
+
         OpenExamDetailCommand = new Command<Exam>(async exam =>
         {
             if (exam is null)
                 return;
 
-            await _navigationService.GoToAsync(
-                nameof(ExamDetailPage),
-                new Dictionary<string, object>
-                {
-                    ["ExamId"] = exam.Id
-                });
+            _sessionService.SelectedExam = exam;
+
+            await _navigationService.GoToAsync(nameof(ExamDetailPage));
+        });
+    }
+
+    private async Task LoadExamsAsync()
+    {
+        var exams = await _examRepository.GetAllAsync();
+
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            Exams.Clear();
+            foreach (var exam in exams)
+                Exams.Add(exam);
         });
     }
 }

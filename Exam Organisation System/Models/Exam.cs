@@ -1,16 +1,20 @@
+using SQLite;
 namespace Exam_Organisation_System.Models;
 
 public class Exam
 {
+    [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
 
     public string CourseName { get; set; } = string.Empty;
 
     public DateTime ExamDate { get; set; }
     
+    [Ignore]
     public string FormattedDate =>
         ExamDate.ToString("dd MMMM yyyy");
 
+    [Ignore]
     public string FormattedTime =>
         ExamDate.ToString("HH:mm");
 

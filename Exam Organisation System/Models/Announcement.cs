@@ -1,7 +1,10 @@
+using SQLite;
+
 namespace Exam_Organisation_System.Models;
 
 public class Announcement
 {
+    [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
 
     public string Title { get; set; } = string.Empty;

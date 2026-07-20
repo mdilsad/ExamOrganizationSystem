@@ -1,5 +1,6 @@
 ﻿// APP.XAML.CS
 using Exam_Organisation_System.Views;
+using Exam_Organisation_System.Services.Database;
 
 namespace Exam_Organisation_System;
 
@@ -19,6 +20,8 @@ public partial class App : Application
     {
         // 2. Kaynaklar artık tamamen bellekte yüklendi. 
         // Şimdi LoginPage'i güvenle çağırıp pencereyi oluşturabiliriz.
+        var databaseInitializer = _serviceProvider.GetRequiredService<DatabaseInitializer>();
+        _ = Task.Run(async () => await databaseInitializer.InitializeAsync());
         var loginPage = _serviceProvider.GetRequiredService<LoginPage>();
         return new Window(new NavigationPage(loginPage));
     }

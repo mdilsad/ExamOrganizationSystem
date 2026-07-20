@@ -4,20 +4,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Exam_Organisation_System.Views.ExamsPage">
     <ContentPage.Content>
-        <VerticalStackLayout Padding="24" Spacing="20">
+        <Grid Padding="24" RowDefinitions="Auto,Auto,*" RowSpacing="20">
 
                 <Label
                     Text="Sınavlar"
                     FontSize="28"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    Grid.Row="0" />
 
-                <SearchBar Placeholder="Sınav ara..." Margin="0,0,0,4" />
+                <SearchBar Placeholder="Sınav ara..." Margin="0,0,0,4" Grid.Row="1" />
 
                 <CollectionView
                     SelectionMode="None"
                     VerticalOptions="FillAndExpand"
                     ItemsSource="{Binding Exams}"
-                    ItemSizingStrategy="MeasureFirstItem">
+                    ItemSizingStrategy="MeasureFirstItem"
+                    Grid.Row="2">
 
                     <CollectionView.ItemTemplate>
 
@@ -69,6 +71,6 @@
 
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </VerticalStackLayout>
+            </Grid>
     </ContentPage.Content>
 </ContentPage>

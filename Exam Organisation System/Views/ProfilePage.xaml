@@ -21,13 +21,13 @@
                                TextColor="White"
                                FontAttributes="Bold"
                                FontSize="18" />
-                        <Label Text="Mehmet Dilşad Butekin"
+                        <Label Text="{Binding CurrentStudent.FullName}"
                                TextColor="White"
                                FontSize="24"
                                FontAttributes="Bold" />
-                        <Label Text="2023556016" TextColor="White" />
-                        <Label Text="Bilgisayar Mühendisliği" TextColor="White" />
-                        <Label Text="4. Sınıf" TextColor="White" />
+                        <Label Text="{Binding CurrentStudent.StudentNumber}" TextColor="White" />
+                        <Label Text="{Binding CurrentStudent.Department}" TextColor="White" />
+                        <Label Text="{Binding CurrentStudent.Class}" TextColor="White" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -55,10 +55,10 @@
                 <Border Padding="16" Stroke="#E5E7EB" StrokeShape="RoundRectangle 16">
                     <VerticalStackLayout Spacing="10">
                         <Label Text="Öğrenci Bilgileri" FontAttributes="Bold" FontSize="18" />
-                        <Label Text="Numara: 2210512345" />
-                        <Label Text="Fakülte: Mühendislik" />
-                        <Label Text="Bölüm: Bilgisayar Mühendisliği" />
-                        <Label Text="E-posta: ogrenci@cu.edu.tr" />
+                        <Label Text="{Binding StudentNumberText}" />
+                        <Label Text="{Binding FacultyText}" />
+                        <Label Text="{Binding DepartmentText}" />
+                        <Label Text="{Binding EmailText}" />
                     </VerticalStackLayout>
                 </Border>
 
