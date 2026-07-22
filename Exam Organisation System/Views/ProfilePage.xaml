@@ -10,11 +10,12 @@
                 <Label
                     Text="Profil"
                     FontSize="28"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
 
                 <Border
                     Padding="20"
-                    BackgroundColor="#006633"
+                    BackgroundColor="{AppThemeBinding Light=#006633, Dark=#0A8A46}"
                     StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="ÇUKUROVA ÜNİVERSİTESİ"
@@ -31,34 +32,14 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
-                    <Border Grid.Column="0" Padding="12" StrokeShape="RoundRectangle 16">
-                        <VerticalStackLayout>
-                            <Label Text="18" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
-                            <Label Text="Toplam" HorizontalOptions="Center" FontSize="12" />
-                        </VerticalStackLayout>
-                    </Border>
-                    <Border Grid.Column="1" Padding="12" StrokeShape="RoundRectangle 16">
-                        <VerticalStackLayout>
-                            <Label Text="12" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
-                            <Label Text="Tamamlanan" HorizontalOptions="Center" FontSize="12" />
-                        </VerticalStackLayout>
-                    </Border>
-                    <Border Grid.Column="2" Padding="12" StrokeShape="RoundRectangle 16">
-                        <VerticalStackLayout>
-                            <Label Text="6" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
-                            <Label Text="Yaklaşan" HorizontalOptions="Center" FontSize="12" />
-                        </VerticalStackLayout>
-                    </Border>
-                </Grid>
 
-                <Border Padding="16" Stroke="#E5E7EB" StrokeShape="RoundRectangle 16">
+                <Border Padding="16" Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}" BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}" StrokeShape="RoundRectangle 16">
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Öğrenci Bilgileri" FontAttributes="Bold" FontSize="18" />
-                        <Label Text="{Binding StudentNumberText}" />
-                        <Label Text="{Binding FacultyText}" />
-                        <Label Text="{Binding DepartmentText}" />
-                        <Label Text="{Binding EmailText}" />
+                        <Label Text="Öğrenci Bilgileri" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
+                        <Label Text="{Binding StudentNumberText}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                        <Label Text="{Binding FacultyText}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                        <Label Text="{Binding DepartmentText}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                        <Label Text="{Binding EmailText}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
                     </VerticalStackLayout>
                 </Border>
 

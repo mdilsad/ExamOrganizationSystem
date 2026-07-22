@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Exam_Organisation_System.Views.StudentLoginPage"
+    BackgroundColor="{StaticResource BackgroundColor}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="30"
+            VerticalOptions="Center"
+            Spacing="20">
+
+            <Image
+                Source="cu_logo.png"
+                HeightRequest="110"
+                WidthRequest="110"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="Çukurova Üniversitesi"
+                FontFamily="CinzelRegular"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="{AppThemeBinding Light=#1F2937, Dark=White}"/>
+            <Label
+                Text="Sınav Yönetim Sistemi"
+                FontFamily="CinzelRegular"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="{AppThemeBinding Light=#1F2937, Dark=White}"/>
+
+            <Label
+                Text="Hoş Geldiniz!"
+                FontSize="18"
+                TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColor}, Dark=LightGray}"
+                HorizontalOptions="Center"/>
+            <Border
+                HorizontalOptions="Center"
+                Padding="12,4"
+                StrokeShape="RoundRectangle 12"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceColor}, Dark=#1E1E1E}">
+
+                <HorizontalStackLayout Spacing="8">
+
+                    <Label
+                        Text="🌐"
+                        FontSize="18"
+                        VerticalOptions="Center"/>
+
+                    <Picker
+                        WidthRequest="130"
+                        Title="Türkçe"
+                        VerticalOptions="Center">
+
+                        <Picker.Items>
+                            <x:String>🇹🇷 Türkçe</x:String>
+                            <x:String>🇬🇧 English</x:String>
+                            <x:String>🇯🇵 Nihongo</x:String>
+                        </Picker.Items>
+
+                    </Picker>
+
+                </HorizontalStackLayout>
+
+            </Border>
+
+            <Border
+                Padding="25"
+                StrokeShape="RoundRectangle 20"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceColor}, Dark=#1E1E1E}">
+
+                <VerticalStackLayout Spacing="18">
+
+                    <Label Text="Öğrenci No."/>
+
+                    <Entry
+                        Placeholder="Öğrenci numaranız"
+                        Text="{Binding StudentNumber}"/>
+
+                    <Label Text="Şifre"/>
+
+                    <Entry
+                        Placeholder="Şifreniz"
+                        IsPassword="True"
+                        Text="{Binding Password}"/>
+
+                    <Button
+                        Text="Giriş yap"
+                        Margin="0,10,0,0"
+                        Command="{Binding LoginCommand}"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Label
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="12"
+                TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColor}, Dark=LightGray}">
+                © Çukurova Üniversitesi 1973-2026&#10;All rights reserved.
+            </Label>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

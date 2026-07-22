@@ -28,6 +28,6 @@ public class ExamDetailViewModel : BaseViewModel
         _navigationService = navigationService;
 
         ShowQrCommand = new Command(async () =>
-            await _navigationService.GoToAsync(nameof(FakeQrPage)));
+            await _navigationService.GoToAsync(nameof(QrScannerPage)));
     }
 }

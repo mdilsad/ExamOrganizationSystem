@@ -7,5 +7,7 @@ public class SessionService
 
     public Exam? SelectedExam { get; set; }
     public Student? CurrentStudent { get; set; }
+    
+    public Teacher? CurrentTeacher { get; set; }
 
 }

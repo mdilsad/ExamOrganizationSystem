@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Windows.Input;
 using Microsoft.Maui.Controls;
 using Exam_Organisation_System.Views;
@@ -46,7 +47,9 @@ public class ExamsViewModel : BaseViewModel
 
     private async Task LoadExamsAsync()
     {
-        var exams = await _examRepository.GetAllAsync();
+        var exams = (await _examRepository.GetAllAsync())
+            .OrderBy(e => e.ExamDate)
+            .ToList();
 
         MainThread.BeginInvokeOnMainThread(() =>
         {

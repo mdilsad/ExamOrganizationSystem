@@ -28,15 +28,16 @@
                             <Border
                                 Margin="0,0,0,16"
                                 Padding="16"
-                                Stroke="#E5E7EB"
+                                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
                                 StrokeShape="RoundRectangle 16"
+                                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
                                 HorizontalOptions="Fill">
                                 <VerticalStackLayout Spacing="8">
                                     <Label
                                         Text="{Binding CourseName}"
                                         FontSize="20"
                                         FontAttributes="Bold"
-                                        TextColor="#1F2937"
+                                        TextColor="{AppThemeBinding Light=#1F2937, Dark=White}"
                                         LineBreakMode="TailTruncation"
                                         MaxLines="1"/>
 
@@ -60,7 +61,7 @@
                                         CornerRadius="12"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenExamDetailCommand}"
                                         CommandParameter="{Binding .}"
-                                        BackgroundColor="#006633"
+                                        BackgroundColor="{AppThemeBinding Light=#006633, Dark=#0A8A46}"
                                         TextColor="White"
                                         HeightRequest="48"
                                         Margin="0,8,0,0"/>

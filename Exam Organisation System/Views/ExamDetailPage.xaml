@@ -10,16 +10,19 @@
                 <Label
                     Text="Sınav Detayı"
                     FontSize="28"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
 
                 <Border Padding="20"
-                        Stroke="#E5E7EB"
+                        Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
                         StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout Spacing="10">
                         <Label
                                Text="{Binding SelectedExam.CourseName}"
                                FontSize="24"
-                               FontAttributes="Bold" />
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
                         <Label Text="{Binding SelectedExam.ExamDate}" />
                         <Label Text="{Binding SelectedExam.ExamTime}" />
                         <Label Text="{Binding SelectedExam.Building}" />
@@ -29,13 +32,15 @@
                 </Border>
 
                 <Border Padding="16"
-                        Stroke="#E5E7EB"
+                        Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
                         StrokeShape="RoundRectangle 16">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Sınav Bilgilendirmesi"
                                FontAttributes="Bold"
-                               FontSize="18" />
-                        <Label Text="{Binding SelectedExam.Description}" LineBreakMode="WordWrap" />
+                               FontSize="18"
+                               TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
+                        <Label Text="{Binding SelectedExam.Description}" LineBreakMode="WordWrap" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
                     </VerticalStackLayout>
                 </Border>
 

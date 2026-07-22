@@ -8,9 +8,11 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         Routing.RegisterRoute(nameof(ExamDetailPage), typeof(ExamDetailPage));
-        Routing.RegisterRoute(nameof(FakeQrPage), typeof(FakeQrPage));
+        Routing.RegisterRoute(nameof(QrScannerPage), typeof(QrScannerPage));
         Routing.RegisterRoute(nameof(SeatPage), typeof(SeatPage));
-        Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+        Routing.RegisterRoute(nameof(StudentLoginPage), typeof(StudentLoginPage));
+        Routing.RegisterRoute(nameof(TeacherLoginPage), typeof(TeacherLoginPage));
+        Routing.RegisterRoute(nameof(LoginSelectionPage), typeof(LoginSelectionPage));
         Routing.RegisterRoute(nameof(NotificationsPage), typeof(NotificationsPage));
     }
 }

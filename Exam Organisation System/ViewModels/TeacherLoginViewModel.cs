@@ -5,16 +5,16 @@ using Exam_Organisation_System.Services;
 
 namespace Exam_Organisation_System.ViewModels;
 
-public class LoginViewModel : BaseViewModel
+public class TeacherLoginViewModel : BaseViewModel
 {
     private readonly NavigationService _navigationService;
     private readonly AuthenticationService _authenticationService;
 
-    private string _studentNumber = string.Empty;
-    public string StudentNumber
+    private string _username = string.Empty;
+    public string Username
     {
-        get => _studentNumber;
-        set => SetProperty(ref _studentNumber, value);
+        get => _username;
+        set => SetProperty(ref _username, value);
     }
 
     private string _password = string.Empty;
@@ -26,7 +26,7 @@ public class LoginViewModel : BaseViewModel
 
     public ICommand LoginCommand { get; }
 
-    public LoginViewModel(
+    public TeacherLoginViewModel(
         NavigationService navigationService,
         AuthenticationService authenticationService)
     {
@@ -37,16 +37,16 @@ public class LoginViewModel : BaseViewModel
 
     private async Task LoginAsync()
     {
-        if (string.IsNullOrWhiteSpace(StudentNumber) || string.IsNullOrWhiteSpace(Password))
+        if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
         {
             await Application.Current!.Windows[0].Page.DisplayAlert(
                 "Hata",
-                "Öğrenci numarası ve şifre giriniz.",
+                "Kullanıcı adı ve şifre giriniz.",
                 "Tamam");
             return;
         }
 
-        if (!await _authenticationService.LoginAsync(StudentNumber, Password))
+        if (!await _authenticationService.TeacherLoginAsync(Username, Password))
         {
             await Application.Current!.Windows[0].Page.DisplayAlert(
                 "Hata",

@@ -10,40 +10,42 @@
                 <Label
                     Text="Ayarlar"
                     FontSize="28"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
 
                 <Border
                     Padding="16"
-                    BackgroundColor="White"
-                    Stroke="#E5E7EB"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
                     StrokeShape="RoundRectangle 16">
                     <VerticalStackLayout Spacing="10">
                         <Grid ColumnDefinitions="*,Auto">
                             <VerticalStackLayout>
-                                <Label Text="Koyu Tema (BETA)" FontAttributes="Bold" FontSize="18" />
-                                <Label Text="Koyu tema yakında kullanılabilir olacak."
-                                       FontSize="13"
-                                       TextColor="Gray" />
+                                <Label Text="Tema Seçimi" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
+                                <Label Text="Uygulamanın temasını seçin: Sistem, Açık veya Koyu." FontSize="13" TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
                             </VerticalStackLayout>
-                            <Switch
+                            <Picker
                                 Grid.Column="1"
-                                IsToggled="{Binding IsDarkMode}"/>
+                                Title="Tema Seçimi"
+                                ItemsSource="{Binding ThemeOptions}"
+                                SelectedItem="{Binding SelectedTheme}"
+                                WidthRequest="120" />
                         </Grid>
                     </VerticalStackLayout>
                 </Border>
 
                 <Border
                     Padding="16"
-                    BackgroundColor="White"
-                    Stroke="#E5E7EB"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
                     StrokeShape="RoundRectangle 16">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Hakkında" FontAttributes="Bold" FontSize="18" />
-                        <Label Text="Exam Organisation System" />
-                        <Label Text="Sürüm 1.0.0" TextColor="Gray" />
+                        <Label Text="Hakkında" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
+                        <Label Text="Exam Organisation System" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                        <Label Text="Sürüm 1.0.0" TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
                         <Label Text="Çukurova Üniversitesi Bilgi İşlem Ağ ve Destek Birimi"
                                FontSize="18"
-                               TextColor="Gray" />
+                               TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
                     </VerticalStackLayout>
                 </Border>
 

@@ -24,7 +24,7 @@ public class NavigationService
 
     public Task NavigateToLoginAsync()
     {
-        var loginPage = _serviceProvider.GetRequiredService<LoginPage>();
+        var loginPage = _serviceProvider.GetRequiredService<LoginSelectionPage>();
 
         Application.Current!.Windows[0].Page =
             new NavigationPage(loginPage);
@@ -34,7 +34,18 @@ public class NavigationService
 
     public Task GoToAsync(string route)
     {
-        return Shell.Current.GoToAsync(route);
+        if (Shell.Current is not null)
+            return Shell.Current.GoToAsync(route);
+
+        Page page = route switch
+        {
+            nameof(StudentLoginPage) => _serviceProvider.GetRequiredService<StudentLoginPage>(),
+            nameof(TeacherLoginPage) => _serviceProvider.GetRequiredService<TeacherLoginPage>(),
+            nameof(LoginSelectionPage) => _serviceProvider.GetRequiredService<LoginSelectionPage>(),
+            _ => throw new InvalidOperationException($"Unknown route: {route}")
+        };
+
+        return Application.Current!.Windows[0].Page.Navigation.PushAsync(page);
     }
 
     public Task GoToAsync(string route, IDictionary<string, object> parameters)

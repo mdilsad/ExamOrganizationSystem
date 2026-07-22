@@ -14,31 +14,37 @@
                     Text="QR Kod"
                     FontSize="28"
                     FontAttributes="Bold"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="Center"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
 
                 <Label
                     Text="Sınav salonu kapısındaki QR kodunu taratıyormuş gibi devam edebilirsiniz."
                     HorizontalTextAlignment="Center"
-                    TextColor="Gray" />
+                    TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
 
                 <Border
                     Padding="16"
-                    Stroke="#E5E7EB"
-                    StrokeShape="RoundRectangle 16">
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
+                    StrokeShape="RoundRectangle 16"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Seçilen Sınav"
                                FontAttributes="Bold"
-                               FontSize="18" />
+                               FontSize="18"
+                               TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
                         <Label
                             Text="{Binding SelectedExam.CourseName}"
-                            FontSize="16" />
+                            FontSize="16"
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}" />
                     </VerticalStackLayout>
                 </Border>
 
                 <Border
                     HorizontalOptions="Center"
                     StrokeShape="RoundRectangle 16"
-                    Padding="16">
+                    Padding="16"
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
                     <Image
                         Source="qr_placeholder.png"
                         HeightRequest="220"

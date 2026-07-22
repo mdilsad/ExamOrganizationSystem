@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+    x:Class="Exam_Organisation_System.Views.QrScannerPage">
+
+    <ContentPage.Content>
+        <Grid>
+
+            <zxing:CameraBarcodeReaderView
+                x:Name="cameraView"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                IsDetecting="True"/>
+
+            <Border
+                Stroke="White"
+                StrokeThickness="3"
+                WidthRequest="250"
+                HeightRequest="250"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+
+            <Label
+                Text="QR kodunu çerçevenin içine hizalayın"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,40"
+                FontSize="16"
+                TextColor="White"
+                BackgroundColor="#80000000"
+                Padding="12,8"/>
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

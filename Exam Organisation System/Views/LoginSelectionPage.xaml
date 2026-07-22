@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Exam_Organisation_System.Views.LoginSelectionPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="30"
+                VerticalOptions="Center"
+                Spacing="20">
+
+                <Image
+                    Source="cu_logo.png"
+                    HeightRequest="110"
+                    WidthRequest="110"
+                    HorizontalOptions="Center"/>
+
+                <Label
+                    Text="Çukurova Üniversitesi"
+                    FontFamily="CinzelRegular"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}"/>
+                <Label
+                    Text="Sınav Yönetim Sistemi"
+                    FontFamily="CinzelRegular"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}"/>
+
+                <Label
+                    Text="Hoş Geldiniz!"
+                    FontSize="18"
+                    TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColor}, Dark=LightGray}"
+                    HorizontalOptions="Center"/>
+                <Border
+                    HorizontalOptions="Center"
+                    Padding="12,4"
+                    StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceColor}, Dark=#1E1E1E}"
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}">
+
+                    <HorizontalStackLayout Spacing="8">
+
+                        <Label
+                            Text="🌐"
+                            FontSize="18"
+                            VerticalOptions="Center"/>
+
+                        <Picker
+                            WidthRequest="130"
+                            Title="Türkçe"
+                            VerticalOptions="Center">
+
+                            <Picker.Items>
+                                <x:String>🇹🇷 Türkçe</x:String>
+                                <x:String>🇬🇧 English</x:String>
+                                <x:String>🇯🇵 Nihongo</x:String>
+                            </Picker.Items>
+
+                        </Picker>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+                <!-- Login selection card -->
+                <Border
+                    Margin="0,30,0,0"
+                    Padding="24"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceColor}, Dark=#1E1E1E}"
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}">
+                    <VerticalStackLayout Spacing="20">
+                        <Label
+                            Text="Giriş Türü"
+                            FontSize="22"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            TextColor="{AppThemeBinding Light=#1F2937, Dark=White}"/>
+                        <Label
+                            Text="Lütfen giriş yapmak istediğiniz kullanıcı türünü seçiniz."
+                            FontSize="15"
+                            TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColor}, Dark=LightGray}"
+                            HorizontalTextAlignment="Center"/>
+                        <Button
+                            Text="👨‍🎓 Öğrenci Girişi"
+                            Command="{Binding StudentLoginCommand}"
+                            HeightRequest="56"/>
+                        <Button
+                            Text="👨‍🏫 Öğretmen Girişi"
+                            Command="{Binding TeacherLoginCommand}"
+                            HeightRequest="56"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

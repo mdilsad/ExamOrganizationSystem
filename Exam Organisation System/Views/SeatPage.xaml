@@ -12,12 +12,13 @@
                 <Label
                     Text="Sınav Bilgileri"
                     FontSize="28"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
 
                 <Border
                     Padding="20"
-                    BackgroundColor="White"
-                    Stroke="#E5E7EB"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                    Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#3A3A3A}"
                     StrokeThickness="1"
                     StrokeShape="RoundRectangle 20">
 
@@ -26,22 +27,23 @@
                         <Label
                             Text="{Binding SelectedExam.CourseName}"
                             FontSize="22"
-                            FontAttributes="Bold" />
+                            FontAttributes="Bold"
+                            TextColor="{AppThemeBinding Light=#1F2937, Dark=White}" />
 
-                        <Label Text="{Binding SelectedExam.FormattedDate}" />
+                        <Label Text="{Binding SelectedExam.FormattedDate}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
-                        <Label Text="{Binding SelectedExam.FormattedTime}" />
+                        <Label Text="{Binding SelectedExam.FormattedTime}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
-                        <Label Text="{Binding SelectedExam.Building}" />
+                        <Label Text="{Binding SelectedExam.Building}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
-                        <Label Text="{Binding SelectedExam.Classroom}" />
+                        <Label Text="{Binding SelectedExam.Classroom}" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                     </VerticalStackLayout>
                 </Border>
 
                 <Border
                     Padding="30"
-                    BackgroundColor="#006633"
+                    BackgroundColor="{AppThemeBinding Light=#006633, Dark=#0A8A46}"
                     StrokeThickness="0"
                     StrokeShape="RoundRectangle 20">
 

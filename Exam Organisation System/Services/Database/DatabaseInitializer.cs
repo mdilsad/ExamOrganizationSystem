@@ -14,6 +14,7 @@ public class DatabaseInitializer
     public DatabaseInitializer(AppDatabase database)
     {
         _database = database;
+        
     }
 
     public async Task InitializeAsync()
@@ -23,6 +24,14 @@ public class DatabaseInitializer
         var studentRepository = new StudentRepository(_database);
         var examRepository = new ExamRepository(_database);
         var announcementRepository = new AnnouncementRepository(_database);
+        var teacherRepository = new TeacherRepository(_database);
+
+        // TEMP: Development database reset
+        await _database.Database.DeleteAllAsync<Announcement>();
+        await _database.Database.DeleteAllAsync<Exam>();
+        await _database.Database.DeleteAllAsync<Student>();
+        await _database.Database.DeleteAllAsync<Teacher>();
+        await _database.Database.DeleteAllAsync<Seat>();
 
         if (!(await studentRepository.GetAllAsync()).Any())
         {
@@ -38,6 +47,17 @@ public class DatabaseInitializer
             });
         }
 
+        if (!(await teacherRepository.GetAllAsync()).Any())
+        {
+            await teacherRepository.AddAsync(new Teacher
+            {
+                Username = "serkan",
+                Password = "kartal",
+                FullName = "Doç. Dr. Serkan KARTAL",
+                Title = "Öğretim Görevlisi"
+            });
+        }
+
         if (!(await examRepository.GetAllAsync()).Any())
         {
             await examRepository.AddAsync(new Exam
@@ -46,7 +66,7 @@ public class DatabaseInitializer
                 Classroom = "R2-309",
                 Building = "Rektörlük Derslikleri",
                 Supervisor = "Dr. Serkan KARTAL",
-                ExamDate = DateTime.Today.AddDays(2).AddHours(9).AddMinutes(30)
+                ExamDate = DateTime.Today.AddHours(9).AddMinutes(10)
             });
 
             await examRepository.AddAsync(new Exam
@@ -55,7 +75,7 @@ public class DatabaseInitializer
                 Classroom = "Yazılım 1",
                 Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları",
                 Supervisor = "Doç.Selma Ayşe ÖZEL",
-                ExamDate = DateTime.Today.AddDays(4).AddHours(13)
+                ExamDate = DateTime.Today.AddHours(15)
             });
 
             await examRepository.AddAsync(new Exam
@@ -124,6 +144,7 @@ public class DatabaseInitializer
                 Content = "Sınavlardan en az 15 dakika önce salon önünde hazır bulunmanız gerekmektedir.",
                 PublishDate = DateTime.Today.AddDays(2)
             });
+
         }
     }
 }

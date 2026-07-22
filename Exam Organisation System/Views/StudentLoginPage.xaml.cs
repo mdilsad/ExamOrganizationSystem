@@ -2,9 +2,9 @@ using Exam_Organisation_System.ViewModels;
 
 namespace Exam_Organisation_System.Views;
 
-public partial class LoginPage : ContentPage
+public partial class StudentLoginPage : ContentPage
 {
-    public LoginPage(LoginViewModel viewModel)
+    public StudentLoginPage(StudentLoginViewModel viewModel)
     {
         InitializeComponent();
         BindingContext = viewModel;

@@ -3,6 +3,7 @@ using Exam_Organisation_System.ViewModels;
 using Exam_Organisation_System.Views;
 using Microsoft.Extensions.Logging;
 using Exam_Organisation_System.Services;
+using ZXing.Net.Maui.Controls;
 
 namespace Exam_Organisation_System;
 
@@ -14,6 +15,7 @@ public static class MauiProgram
 
         builder
             .UseMauiApp<App>()
+            .UseBarcodeReader()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -30,11 +32,16 @@ public static class MauiProgram
         builder.Services.AddSingleton<AppDatabase>();
         builder.Services.AddSingleton<DatabaseInitializer>();
         builder.Services.AddSingleton<StudentRepository>();
+        builder.Services.AddSingleton<TeacherRepository>();
         builder.Services.AddSingleton<ExamRepository>();
         builder.Services.AddSingleton<AnnouncementRepository>();
 
-        builder.Services.AddTransient<LoginViewModel>();
-        builder.Services.AddTransient<LoginPage>();
+        builder.Services.AddTransient<StudentLoginViewModel>();
+        builder.Services.AddTransient<StudentLoginPage>();
+        builder.Services.AddTransient<LoginSelectionViewModel>();
+        builder.Services.AddTransient<LoginSelectionPage>();
+        builder.Services.AddTransient<TeacherLoginViewModel>();
+        builder.Services.AddTransient<TeacherLoginPage>();
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<ExamsViewModel>();
@@ -47,7 +54,7 @@ public static class MauiProgram
         builder.Services.AddTransient<SettingsPage>();
         builder.Services.AddTransient<FakeQrViewModel>();
         builder.Services.AddTransient<SeatViewModel>();
-        builder.Services.AddTransient<FakeQrPage>();
+        builder.Services.AddTransient<QrScannerPage>();
         builder.Services.AddTransient<SeatPage>();
 
 #if DEBUG

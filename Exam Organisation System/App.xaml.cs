@@ -22,7 +22,7 @@ public partial class App : Application
         // Şimdi LoginPage'i güvenle çağırıp pencereyi oluşturabiliriz.
         var databaseInitializer = _serviceProvider.GetRequiredService<DatabaseInitializer>();
         _ = Task.Run(async () => await databaseInitializer.InitializeAsync());
-        var loginPage = _serviceProvider.GetRequiredService<LoginPage>();
-        return new Window(new NavigationPage(loginPage));
+        var loginSelectionPage = _serviceProvider.GetRequiredService<LoginSelectionPage>();
+        return new Window(new NavigationPage(loginSelectionPage));
     }
 }
