@@ -46,6 +46,7 @@
 
                 <Button Text="QR Kodunu Göster"
                         Command="{Binding ShowQrCommand}"
+                        IsVisible="{Binding ShowQrButton}"
                         CornerRadius="12"
                         HeightRequest="52" />
 

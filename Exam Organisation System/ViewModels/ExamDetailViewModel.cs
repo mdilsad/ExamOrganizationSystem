@@ -17,6 +17,13 @@ public class ExamDetailViewModel : BaseViewModel
         set => SetProperty(ref _selectedExam, value);
     }
 
+    private bool _showQrButton;
+    public bool ShowQrButton
+    {
+        get => _showQrButton;
+        set => SetProperty(ref _showQrButton, value);
+    }
+
     public ICommand ShowQrCommand { get; }
 
     public ExamDetailViewModel(
@@ -25,6 +32,7 @@ public class ExamDetailViewModel : BaseViewModel
     {
         _sessionService = sessionService;
         SelectedExam = _sessionService.SelectedExam ?? new Exam();
+        ShowQrButton = _sessionService.ShowQrButton;
         _navigationService = navigationService;
 
         ShowQrCommand = new Command(async () =>

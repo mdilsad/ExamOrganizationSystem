@@ -93,6 +93,7 @@ public class HomeViewModel : BaseViewModel
             if (!HasExamToday)
                 return;
             _sessionService.SelectedExam = NextExam;
+            _sessionService.ShowQrButton = true;
             await _navigationService.GoToAsync(nameof(ExamDetailPage));
         });
     }

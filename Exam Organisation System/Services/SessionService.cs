@@ -13,6 +13,7 @@ public class SessionService
 
     public int? ExamId { get; set; }
     public int? ClassroomId { get; set; }
+    public bool ShowQrButton { get; set; }
 
     public int? StudentId => CurrentStudent?.Id;
 }

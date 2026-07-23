@@ -25,10 +25,28 @@ public class ExamRepository
 
     public async Task<Exam?> GetUpcomingExamByClassroomAsync(int classroomId)
     {
-        var today = DateTime.Today;
+        var now = DateTime.Now;
 
         return await _database.Table<Exam>()
-            .Where(e => e.ClassroomId == classroomId && e.ExamDate >= today)
+            .Where(e => e.ClassroomId == classroomId && e.ExamDate >= now)
+            .OrderBy(e => e.ExamDate)
+            .FirstOrDefaultAsync();
+    }
+
+    public async Task<Exam?> GetUpcomingExamByStudentAsync(int studentId)
+    {
+        var now = DateTime.Now;
+
+        var seat = await _database.Table<Seat>()
+            .ToListAsync();
+
+        var studentExamIds = seat
+            .Where(s => s.StudentId == studentId)
+            .Select(s => s.ExamId)
+            .ToList();
+
+        return await _database.Table<Exam>()
+            .Where(e => studentExamIds.Contains(e.Id) && e.ExamDate >= now)
             .OrderBy(e => e.ExamDate)
             .FirstOrDefaultAsync();
     }

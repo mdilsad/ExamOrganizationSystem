@@ -40,6 +40,7 @@ public class ExamsViewModel : BaseViewModel
                 return;
 
             _sessionService.SelectedExam = exam;
+            _sessionService.ShowQrButton = false;
 
             await _navigationService.GoToAsync(nameof(ExamDetailPage));
         });

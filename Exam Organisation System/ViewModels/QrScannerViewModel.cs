@@ -51,6 +51,23 @@ public class QrScannerViewModel : BaseViewModel
             return;
         }
 
+        var upcomingExam = await _examRepository.GetUpcomingExamByStudentAsync(student.Id);
+
+        if (upcomingExam is null)
+        {
+            await Shell.Current.DisplayAlert("Bilgi", "Yaklaşan sınavınız bulunamadı.", "Tamam");
+            return;
+        }
+
+        if (exam.Id != upcomingExam.Id)
+        {
+            await Shell.Current.DisplayAlert(
+                "Hata",
+                "Bu QR kod şu anki sınavınız için geçerli değildir.",
+                "Tamam");
+            return;
+        }
+
         var seat = await _seatRepository.GetSeatAsync(student.Id, exam.Id, classroomId);
 
         if (seat is null)
