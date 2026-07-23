@@ -25,6 +25,7 @@ public class DatabaseInitializer
         var examRepository = new ExamRepository(_database);
         var announcementRepository = new AnnouncementRepository(_database);
         var teacherRepository = new TeacherRepository(_database);
+        var seatRepository = new SeatRepository(_database);
 
         // TEMP: Development database reset
         await _database.Database.DeleteAllAsync<Announcement>();
@@ -32,6 +33,13 @@ public class DatabaseInitializer
         await _database.Database.DeleteAllAsync<Student>();
         await _database.Database.DeleteAllAsync<Teacher>();
         await _database.Database.DeleteAllAsync<Seat>();
+        await _database.Database.DropTableAsync<Seat>();
+        await _database.Database.DropTableAsync<Exam>();
+        await _database.Database.DropTableAsync<Student>();
+        await _database.Database.DropTableAsync<Teacher>();
+        await _database.Database.DropTableAsync<Announcement>();
+
+        await _database.InitializeAsync();
 
         if (!(await studentRepository.GetAllAsync()).Any())
         {
@@ -62,8 +70,10 @@ public class DatabaseInitializer
         {
             await examRepository.AddAsync(new Exam
             {
+                Id = 1,
                 CourseName = "Mobil Uygulama Geliştirme",
                 Classroom = "R2-309",
+                ClassroomId = 2309,
                 Building = "Rektörlük Derslikleri",
                 Supervisor = "Dr. Serkan KARTAL",
                 ExamDate = DateTime.Today.AddHours(9).AddMinutes(10)
@@ -71,8 +81,10 @@ public class DatabaseInitializer
 
             await examRepository.AddAsync(new Exam
             {
+                Id = 2,
                 CourseName = "Veritabanı Yönetim Sistemleri",
                 Classroom = "Yazılım 1",
+                ClassroomId = 1001,
                 Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları",
                 Supervisor = "Doç.Selma Ayşe ÖZEL",
                 ExamDate = DateTime.Today.AddHours(15)
@@ -80,8 +92,10 @@ public class DatabaseInitializer
 
             await examRepository.AddAsync(new Exam
             {
+                Id = 3,
                 CourseName = "Yapay Zeka",
                 Classroom = "R2-301",
+                ClassroomId = 2301,
                 Building = "Rektörlük Derslikleri",
                 Supervisor = "Dr. Mehmet SARIGÜL",
                 ExamDate = DateTime.Today.AddDays(6).AddHours(10)
@@ -89,8 +103,10 @@ public class DatabaseInitializer
 
             await examRepository.AddAsync(new Exam
             {
+                Id = 4,
                 CourseName = "Bilgisayar Ağları",
                 Classroom = "R2-308",
+                ClassroomId = 2308,
                 Building = "Rektörlük Derslikleri",
                 Supervisor = "Dr. Elif Emel FIRAT",
                 ExamDate = DateTime.Today.AddDays(8).AddHours(14)
@@ -98,8 +114,10 @@ public class DatabaseInitializer
 
             await examRepository.AddAsync(new Exam
             {
+                Id = 5,
                 CourseName = "İşletim Sistemleri",
                 Classroom = "Yazılım 2",
+                ClassroomId = 1002,
                 Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları",
                 Supervisor = "Prof. Dr. Barış ATA",
                 ExamDate = DateTime.Today.AddDays(10).AddHours(9)
@@ -107,12 +125,24 @@ public class DatabaseInitializer
 
             await examRepository.AddAsync(new Exam
             {
+                Id = 6,
                 CourseName = "Theory Of Computation",
                 Classroom = "Yazılım 1",
+                ClassroomId = 1001,
                 Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları",
                 Supervisor = "Prof. Dr. Umut ORHAN",
                 ExamDate = DateTime.Today.AddDays(12).AddHours(11)
             });
+        }
+
+        if (!(await seatRepository.GetAllAsync()).Any())
+        {
+            await seatRepository.AddAsync(new Seat { StudentId = 1, ExamId = 1, ClassroomId = 2309, Classroom = "R2-309", Building = "Rektörlük Derslikleri", SeatNumber = 18 });
+            await seatRepository.AddAsync(new Seat { StudentId = 1, ExamId = 2, ClassroomId = 1001, Classroom = "Yazılım 1", Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları", SeatNumber = 7 });
+            await seatRepository.AddAsync(new Seat { StudentId = 1, ExamId = 3, ClassroomId = 2301, Classroom = "R2-301", Building = "Rektörlük Derslikleri", SeatNumber = 21 });
+            await seatRepository.AddAsync(new Seat { StudentId = 1, ExamId = 4, ClassroomId = 2308, Classroom = "R2-308", Building = "Rektörlük Derslikleri", SeatNumber = 12 });
+            await seatRepository.AddAsync(new Seat { StudentId = 1, ExamId = 5, ClassroomId = 1002, Classroom = "Yazılım 2", Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları", SeatNumber = 5 });
+            await seatRepository.AddAsync(new Seat { StudentId = 1, ExamId = 6, ClassroomId = 1001, Classroom = "Yazılım 1", Building = "Bilgisayar Mühendisliği Yazılım Laboratuvarları", SeatNumber = 16 });
         }
 
         if (!(await announcementRepository.GetAllAsync()).Any())

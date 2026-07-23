@@ -3,7 +3,7 @@ namespace Exam_Organisation_System.Models;
 
 public class Exam
 {
-    [PrimaryKey, AutoIncrement]
+    [PrimaryKey]
     public int Id { get; set; }
 
     public string CourseName { get; set; } = string.Empty;
@@ -21,6 +21,8 @@ public class Exam
     public string Building { get; set; } = string.Empty;
 
     public string Classroom { get; set; } = string.Empty;
+
+    public int ClassroomId { get; set; }
 
     public string Supervisor { get; set; } = string.Empty;
 

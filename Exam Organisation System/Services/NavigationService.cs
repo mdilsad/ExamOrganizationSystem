@@ -52,6 +52,18 @@ public class NavigationService
     {
         return Shell.Current.GoToAsync(route, parameters);
     }
+    
+    public async Task GoToAndRemoveCurrentAsync(string route)
+    {
+        var currentPage = Shell.Current.CurrentPage;
+
+        await Shell.Current.GoToAsync(route);
+
+        if (currentPage != null)
+        {
+            Shell.Current.Navigation.RemovePage(currentPage);
+        }
+    }
 
     public Task GoBackAsync()
     {

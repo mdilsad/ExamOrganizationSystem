@@ -35,6 +35,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<TeacherRepository>();
         builder.Services.AddSingleton<ExamRepository>();
         builder.Services.AddSingleton<AnnouncementRepository>();
+        builder.Services.AddSingleton<SeatRepository>();
 
         builder.Services.AddTransient<StudentLoginViewModel>();
         builder.Services.AddTransient<StudentLoginPage>();
@@ -44,6 +45,8 @@ public static class MauiProgram
         builder.Services.AddTransient<TeacherLoginPage>();
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<HomePage>();
+        builder.Services.AddTransient<FakeQrPage>();
+        builder.Services.AddTransient<QrScannerViewModel>();
         builder.Services.AddTransient<ExamsViewModel>();
         builder.Services.AddTransient<ExamDetailViewModel>();
         builder.Services.AddTransient<ProfileViewModel>();

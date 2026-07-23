@@ -23,6 +23,16 @@ public class ExamRepository
             .FirstOrDefaultAsync(e => e.Id == id);
     }
 
+    public async Task<Exam?> GetUpcomingExamByClassroomAsync(int classroomId)
+    {
+        var today = DateTime.Today;
+
+        return await _database.Table<Exam>()
+            .Where(e => e.ClassroomId == classroomId && e.ExamDate >= today)
+            .OrderBy(e => e.ExamDate)
+            .FirstOrDefaultAsync();
+    }
+
     public async Task<int> AddAsync(Exam exam)
     {
         return await _database.InsertAsync(exam);

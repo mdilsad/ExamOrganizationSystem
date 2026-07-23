@@ -29,7 +29,29 @@ public class SeatRepository
     public Task<int> DeleteAsync(Seat seat)
         => _database.DeleteAsync(seat);
 
-    public Task<Seat?> GetSeatAsync(int studentId, int examId, int classroomId)
-        => _database.Table<Seat>()
-            .FirstOrDefaultAsync(s => s.StudentId == studentId && s.ExamId == examId && s.ClassroomId == classroomId);
+    public async Task<Seat?> GetSeatAsync(int studentId, int examId, int classroomId)
+    {
+        var all = await _database.Table<Seat>().ToListAsync();
+
+        var text = "";
+
+        foreach (var s in all)
+        {
+            text += $"SeatId:{s.Id}  Student:{s.StudentId}  Exam:{s.ExamId}  Class:{s.ClassroomId}";
+
+            if (s.StudentId == studentId &&
+                s.ExamId == examId &&
+                s.ClassroomId == classroomId)
+            {
+                text += "   <-- EŞLEŞTİ";
+            }
+
+            text += "\n";
+        }
+
+        return all.FirstOrDefault(s =>
+            s.StudentId == studentId &&
+            s.ExamId == examId &&
+            s.ClassroomId == classroomId);
+    }
 }

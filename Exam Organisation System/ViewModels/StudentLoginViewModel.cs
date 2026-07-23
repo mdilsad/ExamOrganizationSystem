@@ -9,6 +9,7 @@ public class StudentLoginViewModel : BaseViewModel
 {
     private readonly NavigationService _navigationService;
     private readonly AuthenticationService _authenticationService;
+    private readonly SessionService _sessionService;
 
     private string _studentNumber = string.Empty;
     public string StudentNumber
@@ -28,10 +29,12 @@ public class StudentLoginViewModel : BaseViewModel
 
     public StudentLoginViewModel(
         NavigationService navigationService,
-        AuthenticationService authenticationService)
+        AuthenticationService authenticationService,
+        SessionService sessionService)
     {
         _navigationService = navigationService;
         _authenticationService = authenticationService;
+        _sessionService = sessionService;
         LoginCommand = new Command(async () => await LoginAsync());
     }
 

@@ -57,14 +57,32 @@
                             FontSize="20" />
 
                         <Label
-                            Text="{Binding SelectedExam.SeatNumber}"
+                            Text="{Binding Seat.SeatNumber}"
                             FontSize="64"
                             FontAttributes="Bold"
                             TextColor="White"
                             HorizontalTextAlignment="Center" />
 
+                        <Label
+                            Text="{Binding Seat.Row, StringFormat='Satır: {0}'}"
+                            TextColor="White"
+                            FontSize="18"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="{Binding Seat.Column, StringFormat='Sütun: {0}'}"
+                            TextColor="White"
+                            FontSize="18"
+                            HorizontalTextAlignment="Center" />
+
                     </VerticalStackLayout>
                 </Border>
+
+                <Label
+                    Text="{Binding StatusMessage}"
+                    TextColor="Red"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="{Binding HasStatusMessage}" />
 
                 <Button
                     Text="Ana Sayfaya Dön"
